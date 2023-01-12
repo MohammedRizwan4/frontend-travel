@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import city1 from '../../assets/topdestination/shimla.jpg'
-import t1 from '../../assets/topdestination/t1.jpg';
-import t2 from '../../assets/topdestination/t2.jpg';
-import t3 from '../../assets/topdestination/t3.jpg';
-import t4 from '../../assets/topdestination/t4.jpg';
-import t5 from '../../assets/topdestination/t5.jpg';
-import t6 from '../../assets/topdestination/t6.jpg';
-import t7 from '../../assets/topdestination/t7.jpg';
-import t8 from '../../assets/topdestination/t8.jpg';
-import t9 from '../../assets/topdestination/t9.jpg';
-import t10 from '../../assets/topdestination/t10.jpg';
-import t11 from '../../assets/topdestination/t11.jpg';
-import t12 from '../../assets/topdestination/t12.jpg';
-import { AiFillStar, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+// import city1 from '../../assets/topdestination/shimla.jpg'
+import t1 from '../../../assets/topdestination/t1.jpg';
+// import t2 from '../../assets/topdestination/t2.jpg';
+// import t3 from '../../assets/topdestination/t3.jpg';
+// import t4 from '../../assets/topdestination/t4.jpg';
+// import t5 from '../../assets/topdestination/t5.jpg';
+// import t6 from '../../assets/topdestination/t6.jpg';
+import t7 from '../../../assets/topdestination/t7.jpg';
+// import t8 from '../../assets/topdestination/t8.jpg';
+// import t9 from '../../assets/topdestination/t9.jpg';
+// import t10 from '../../assets/topdestination/t10.jpg';
+import t11 from '../../../assets/topdestination/t11.jpg';
+import t12 from '../../../assets/topdestination/t12.jpg';
+import { AiFillStar } from 'react-icons/ai';
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa'
-import PackageOuter from '../../components/PackageOuter';
-import { BsArrowBarLeft, BsArrowBarRight, BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
+import PackageOuter from '../../../components/home/PackageOuter';
+import { BsArrowBarLeft, BsArrowBarRight } from 'react-icons/bs';
 
-const PlayTrip = () => {
+const Recommend = () => {
 
     const [slideIndex, setSlideIndex] = useState(0)
 
@@ -34,46 +33,22 @@ const PlayTrip = () => {
     console.log(slideIndex);
     return (
         <Section slideIndex={slideIndex}>
-            <div className="left" onClick={() => handleClick("left")}><BsChevronLeft className='clr' /></div>
-            <div className="right" onClick={() => handleClick("right")}><BsChevronRight className='clr' /></div>
+            {/* <div className="left" onClick={() => handleClick("left")}><FaAngleDoubleLeft className='clr' /></div>
+            <div className="right" onClick={() => handleClick("right")}><FaAngleDoubleRight className='clr' /></div> */}
             <div className="container">
-                <h1>Plan your next trip</h1>
+                <h1>Recommended for you</h1>
                 <div className="wrapper">
-                    <PackageOuter video={t2} />
-                    <PackageOuter video={t4} />
-                    <PackageOuter video={t5} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
-                    <PackageOuter video={t6} />
+                    <PackageOuter video={t7} />
+                    <PackageOuter video={t1} />
+                    <PackageOuter video={t11} />
+                    <PackageOuter video={t12} />
                 </div>
             </div>
         </Section>
     );
 }
 
-export default PlayTrip;
+export default Recommend;
 
 const Section = styled.section`
     box-sizing: border-box;
@@ -81,47 +56,42 @@ const Section = styled.section`
     height: 85vh;
     background-color: whitesmoke;
     padding: 0rem 3rem;
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    margin: 0;
     .right{
-            height: 40px;
-            width: 40px;
+            height: 30px;
+            width: 30px;
             border-radius: 50%;
             position: absolute;
-            top: 13%;
-            right: 80px;
+            top: 50%;
+            right: 30px;
             display: flex;
-            background-color: transparent;
+            background-color: lightgray;
             justify-content: center;
             align-items: center;
-            border: 1px solid #dedede;
             cursor: pointer;
-            box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
             .clr{
-                color: #232323;
-                font-size: 14px;
+                color: black;
             }
         }
     .left{
-            height: 40px;
-            width: 40px;
+            height: 30px;
+            width: 30px;
             border-radius: 50%;
             position: absolute;
-            top: 13%;
-            border: 1px solid #dedede;
-            right: 150px;
+            top: 50%;
+            left: 30px;
             display: flex;
-            background-color: transparent;
+            background-color: lightgray;
             justify-content: center;
-            box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
             align-items: center;
+            border: .5px solid black;
             cursor: pointer;
             .clr{
-                color: #232323;
-                font-size: 14px;
+                color: black;
             }
         }
     .container{
@@ -135,19 +105,16 @@ const Section = styled.section`
         overflow: hidden;
         h1{
             font-size: 36px;
+            padding: 0rem 2rem;
             margin-top: 1rem;
-            margin-left: 2rem;
             color: #1a2b48;
         }
         .wrapper{
             display: flex;
-            margin-left: 2.2rem;
             width: 100%;
-            justify-content: flex-start;
-            transition-duration: 0.5s;
-            transform: translateX(${props => props.slideIndex * -49.80}%);
+            justify-content: center;
             align-items: center;
-            gap: 2.3rem;
+            gap: 2rem;
             border-radius: .7rem;
             height: 60vh;
             .packageItem{
@@ -158,7 +125,6 @@ const Section = styled.section`
                 overflow: hidden;
                 box-shadow: rgba(100,111,111,0.35) 5px 5px 5px;
                 border-radius: .7rem;
-                
                 .like{
                     position: absolute;
                     top: 15px;

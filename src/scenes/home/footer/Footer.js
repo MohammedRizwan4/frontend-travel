@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import './footer.css';
-import footerImage from '../../assets/footerImage.png'
+import footerImage from '../../../assets/footerImage.png'
 import { FaFacebookF } from 'react-icons/fa';
 import { BsTwitter } from 'react-icons/bs';
 import { IoLogoYoutube } from 'react-icons/io';

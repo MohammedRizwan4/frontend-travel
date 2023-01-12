@@ -1,14 +1,28 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { VscThreeBars } from 'react-icons/vsc';
+import './navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
     const [toggle, setToggle] = useState(false);
+    const [packageOpener, setPackageOpener] = useState(false);
+
+    const packageOpen = () => {
+        setPackageOpener(!packageOpener);
+        console.log("hello");
+    }
 
     const handleClick = () => {
         setToggle(!toggle)
     }
+
+    const packageClose = () => {
+        setPackageOpener(!packageOpener);
+        console.log("close");
+    }
+
 
     return (
         <>
@@ -22,12 +36,22 @@ const Navbar = () => {
                     </div>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li className='package'><a href="#">Packages</a>
+                            <div className='pacOpen'>
+                                <ul>
+                                    <li><a href="#">Hello</a></li>
+                                    <li><a href="#">Hello</a></li>
+                                    <li><a href="#">Hello</a></li>
+                                    <li><a href="#">Hello</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
                     <div className="auth">
-                        <button>Login</button>
+                        <Link to="/login"><button>Login</button></Link>
                         <button>Register</button>
                     </div>
                 </div>
@@ -35,7 +59,7 @@ const Navbar = () => {
             <List toggle={toggle}>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Packages</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
@@ -56,12 +80,15 @@ const Nav = styled.nav`
     background-color: #f7fffa;
     z-index: 584;
     top: 12px;
+    box-sizing: border-box;
     .main_nav{
         max-width: 80vw;
         width: 80vw;
         display: flex;
         justify-content: space-between;
+        box-sizing: border-box;
         align-items: center;
+        height: 100%;
         .toggle{
             display: none;
         }
@@ -81,16 +108,78 @@ const Nav = styled.nav`
         ul{
             display: flex;
             justify-content: space-between;
-            width: 30vw;
-            li{
-                list-style-type: none;
-                font-size: 1.1rem;
-                font-weight: 500;  
-                a{
-                    transition: 0.3s ease-in-out;
-                    &:hover{
-                        color: blue;
+            box-sizing: border-box;
+            width: 38vw;
+            position: relative;
+            height: 100%;
+            .pacOpen{
+                position: absolute;
+                display: none;
+                height: 300px;
+                width: 250px;
+                background-color: white;    
+                top: 70px;
+                border-radius: .4rem;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                left: 140px;
+                z-index: 999;
+                
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    margin: 0;
+                    padding-bottom: .6rem;
+                    li{
+                        list-style-type: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        padding: 0;
+                        padding-left: 1.5rem;
+                        a{
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            color: black;
+                            &:hover{
+                                color: blue;
+                            }
+                        }
                     }
+                }
+            }
+            .package:hover .pacOpen{
+                display: block;
+            }
+            li{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                list-style-type: none;
+                box-sizing: border-box;
+                padding: 1.2rem;
+                font-size: 1.1rem;
+                height: 100%;
+                width: 100%;
+                font-weight: 500;  
+                height: 100%;
+                cursor: pointer;
+                &:hover a{
+                    color: blue;
+                }
+                a{
+                    transition: 0.1s ease-in-out;
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
                     color: black;
                     text-decoration: none;
                 }

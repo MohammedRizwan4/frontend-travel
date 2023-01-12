@@ -1,21 +1,17 @@
 import './App.css';
-import Footer from './scenes/footer/Footer';
-import Navbar from './scenes/navbar/Navbar';
-import PlayTrip from './scenes/playtrip/PlanTrip';
-import Recommend from './scenes/recommened/Recommend';
-import Search from './scenes/search/Search';
-import Topsearch from './scenes/topsearch/Topsearch';
-
+import Home from './scenes/home/Home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './scenes/login/Login';
 
 function App() {
     return (
         <>
-            <Navbar />
-            <Search />
-            <Topsearch />
-            <PlayTrip />
-            <Recommend/>
-            <Footer />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                </Routes>
+            </BrowserRouter>
         </>
     );
 }

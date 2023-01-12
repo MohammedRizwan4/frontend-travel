@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import city1 from '../../assets/topdestination/shimla.jpg'
-import t1 from '../../assets/topdestination/t1.jpg';
-import t2 from '../../assets/topdestination/t2.jpg';
-import t3 from '../../assets/topdestination/t3.jpg';
-import t4 from '../../assets/topdestination/t4.jpg';
-import t5 from '../../assets/topdestination/t5.jpg';
-import t6 from '../../assets/topdestination/t6.jpg';
-import t7 from '../../assets/topdestination/t7.jpg';
-import t8 from '../../assets/topdestination/t8.jpg';
-import t9 from '../../assets/topdestination/t9.jpg';
-import t10 from '../../assets/topdestination/t10.jpg';
-import t11 from '../../assets/topdestination/t11.jpg';
-import t12 from '../../assets/topdestination/t12.jpg';
+// import city1 from '../../assets/topdestination/shimla.jpg'
+// import t1 from '../../assets/topdestination/t1.jpg';
+import t2 from '../../../assets/topdestination/t2.jpg';
+import t3 from '../../../assets/topdestination/t3.jpg';
+import t4 from '../../../assets/topdestination/t4.jpg';
+import t5 from '../../../assets/topdestination/t5.jpg';
+import t6 from '../../../assets/topdestination/t6.jpg';
+// import t7 from '../../assets/topdestination/t7.jpg';
+// import t8 from '../../assets/topdestination/t8.jpg';
+// import t9 from '../../assets/topdestination/t9.jpg';
+// import t10 from '../../assets/topdestination/t10.jpg';
+import t11 from '../../../assets/topdestination/t11.jpg';
+// import t12 from '../../assets/topdestination/t12.jpg';
 
 const Topsearch = () => {
     return (

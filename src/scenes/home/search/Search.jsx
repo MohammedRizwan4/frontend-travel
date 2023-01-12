@@ -4,11 +4,11 @@ import { ImLocation2 } from 'react-icons/im'
 import { MdOutlinePeopleOutline } from 'react-icons/md'
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { IoLocationOutline } from 'react-icons/io5'
-import v1 from '../../assets/v1.mp4'
-import v2 from '../../assets/v2.mp4'
-import v3 from '../../assets/v3.mp4'
-import v4 from '../../assets/v4.mp4'
-import v5 from '../../assets/v5.mp4'
+// import v1 from '../../assets/v1.mp4'
+// import v2 from '../../assets/v2.mp4'
+// import v3 from '../../assets/v3.mp4'
+// import v4 from '../../assets/v4.mp4'
+// import v5 from '../../assets/v5.mp4'
 import { MdArrowLeft, MdArrowRight } from 'react-icons/md'
 import { DateRange } from 'react-date-range';
 import { format } from 'date-fns';

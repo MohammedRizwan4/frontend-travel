@@ -1,0 +1,14 @@
+.pacOpen{
+    -webkit-animation: bar .15s ease;
+}
+
+
+@keyframes bar
+{
+  0% {
+    top: 120%;
+  }
+  100% {
+    top: 100%;
+  }
+}
