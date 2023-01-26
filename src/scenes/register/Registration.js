@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from '../home/navbar/Navbar';
+import { useAuthRegisterMutation } from '../../store/services/authService';
 import styled from 'styled-components';
 import { useFormik } from "formik";
+import { basicSchema } from './basicSchema';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useAuthLoginMutation, useAuthRegisterMutation } from '../../../store/services/authService';
-import { setSuccess } from '../../../store/reducers/globalReducer';
-import { basicSchema } from './basicSchema';
+import { setSuccess } from '../../store/reducers/globalReducer';
 
-const LoginForm = () => {
+const Registration = () => {
 
-    const [loginData, response] = useAuthLoginMutation();
+    const [loginData, response] = useAuthRegisterMutation();
     console.log(response);
 
     const dispatch = useDispatch();
@@ -32,23 +33,28 @@ const LoginForm = () => {
     } = useFormik({
         initialValues: {
             email: "",
+            firstname: "",
+            lastname: "",
             password: "",
+            confirmPassword: "",
         },
         validationSchema: basicSchema,
         onSubmit,
     });
 
     useEffect(() => {
-        if (response?.isSuccess) {
-            dispatch(setSuccess(response?.data?.msg))
-        }
+      if(response?.isSuccess){
+        dispatch(setSuccess(response?.data?.msg))
+      }
     }, [response?.isSuccess]);
 
     return (
         <div>
+            <Navbar />
+
             <Wrapper>
                 <div className="register">
-                    <h1>Login</h1>
+                    <h1>Register</h1>
                     <form className='inputs' onSubmit={handleSubmit} autoComplete="off">
                         <div className="input">
                             <label htmlFor="email">Email</label>
@@ -60,13 +66,42 @@ const LoginForm = () => {
                                     type="email"
                                     placeholder="Enter your email"
                                     onBlur={handleBlur}
-                                    autoComplete='off'
                                     className={errors.email && touched.email ? "input-error" : ""}
                                 />
                                 {errors.email && touched.email && <p className="error">{errors.email}</p>}
                             </div>
                         </div>
                         <div className="input">
+                            <label htmlFor="firstname">First name</label>
+                            <div className="main">
+                                <input
+                                    value={values.firstname}
+                                    onChange={handleChange}
+                                    id="firstname"
+                                    type="text"
+                                    placeholder="Enter your firstname"
+                                    onBlur={handleBlur}
+                                    className={errors.firstname && touched.firstname ? "input-error" : ""}
+                                />
+                                {errors.firstname && touched.firstname && <p className="error">{errors.firstname}</p>}
+                            </div>
+
+                        </div> <div className="input">
+                            <label htmlFor="lastname">Last name</label>
+                            <div className="main">
+                                <input
+                                    value={values.lastname}
+                                    onChange={handleChange}
+                                    id="lastname"
+                                    type="text"
+                                    placeholder="Enter your lastname"
+                                    onBlur={handleBlur}
+                                    className={errors.lastname && touched.lastname ? "input-error" : ""}
+                                />
+                                {errors.lastname && touched.lastname && <p className="error">{errors.lastname}</p>}
+                            </div>
+
+                        </div> <div className="input">
                             <label htmlFor="password">Password</label>
                             <div className="main">
                                 <input
@@ -76,12 +111,31 @@ const LoginForm = () => {
                                     type="password"
                                     placeholder="Enter your password"
                                     onBlur={handleBlur}
-                                    autoComplete="off"
                                     className={errors.password && touched.password ? "input-error" : ""}
                                 />
                                 {errors.password && touched.password && <p className="error">{errors.password}</p>}
                             </div>
                         </div>
+                        <div className="input">
+                            <label htmlFor="confirmPassword">Confirm Password</label>
+                            <div className="main">
+                                <input
+                                    id="confirmPassword"
+                                    type="password"
+                                    placeholder="Confirm password"
+                                    value={values.confirmPassword}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    className={
+                                        errors.confirmPassword && touched.confirmPassword ? "input-error" : ""
+                                    }
+                                />
+                                {errors.confirmPassword && touched.confirmPassword && (
+                                    <p className="error">{errors.confirmPassword}</p>
+                                )}
+                            </div>
+                        </div>
+
                         <button disabled={response.isLoading} type="submit">
                             Submit
                         </button>
@@ -92,7 +146,8 @@ const LoginForm = () => {
     );
 }
 
-export default LoginForm;
+export default Registration;
+
 
 const Wrapper = styled.section`
     display: flex;

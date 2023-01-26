@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { VscThreeBars } from 'react-icons/vsc';
 import './navbar.css';
 import { Link } from 'react-router-dom';
+import { AiFillCaretDown } from 'react-icons/ai';
 
 const Navbar = () => {
 
@@ -28,18 +29,20 @@ const Navbar = () => {
         <>
             <Nav>
                 <div className="main_nav">
-                    <div className="logo">
-                        Pack & Go
-                    </div>
+                    <Link to="/" className='text-none'>
+                        <div className="logo">
+                            Pack & Go
+                        </div>
+                    </Link>
                     <div className="toggle">
                         <VscThreeBars onClick={handleClick} />
                     </div>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li className='package'><a href="#">Packages</a>
+                        <li><Link to="/" className='text-none'>Home</Link></li>
+                        <li className='package'><Link to="/theme">Packages<AiFillCaretDown className='icon' /></Link>
                             <div className='pacOpen'>
                                 <ul>
-                                    <li><a href="#">Hello</a></li>
+                                    <li><a href="#">Perfect for youngsters</a></li>
                                     <li><a href="#">Hello</a></li>
                                     <li><a href="#">Hello</a></li>
                                     <li><a href="#">Hello</a></li>
@@ -52,7 +55,7 @@ const Navbar = () => {
                     </ul>
                     <div className="auth">
                         <Link to="/login"><button>Login</button></Link>
-                        <button>Register</button>
+                        <Link to="/register"><button>Register</button></Link>
                     </div>
                 </div>
             </Nav>
@@ -72,33 +75,38 @@ const Navbar = () => {
 export default Navbar;
 
 const Nav = styled.nav`
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    height: 10vh;
+    width: 100%; 
+    margin: auto;  
+    display: flex; 
+    justify-content: center; 
+    height: 10vh; 
     background-color: #f7fffa;
-    z-index: 584;
+    z-index: 584; 
     top: 12px;
-    box-sizing: border-box;
+    box-sizing: border-box; 
     .main_nav{
-        max-width: 80vw;
-        width: 80vw;
-        display: flex;
-        justify-content: space-between;
-        box-sizing: border-box;
-        align-items: center;
-        height: 100%;
+        max-width: 80vw; 
+        width: 80vw; 
+        display: flex; 
+        justify-content: space-between; 
+        box-sizing: border-box; 
+        align-items: center; 
+        height: 100%; 
+        .text-none{
+            text-decoration: none; 
+        }
         .toggle{
-            display: none;
+            display: none; 
         }
         .logo{
-            font-size: 35px;
+            color: black; 
+            font-size: 35px; 
             font-weight: 900;
-            transition: 0.3s ease-in-out;
-            padding: 0.2rem 1rem;
+            transition: 0.3s ease-in-out; 
+            padding: 0.2rem 1rem; 
             border-radius: 1rem;
-            cursor: pointer;
+            cursor: pointer; 
+            text-decoration: none; 
             &:hover{
                 box-shadow: rgba(100,100,111,0.35) 5px 5px 5px;
                 background-color: aliceblue;
@@ -115,10 +123,10 @@ const Nav = styled.nav`
             .pacOpen{
                 position: absolute;
                 display: none;
-                height: 300px;
-                width: 250px;
+                height: 300px; 
+                width: 250px; 
                 background-color: white;    
-                top: 70px;
+                top: 70px; 
                 border-radius: .4rem;
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                 left: 140px;
@@ -141,6 +149,9 @@ const Nav = styled.nav`
                         justify-content: flex-start;
                         padding: 0;
                         padding-left: 1.5rem;
+                        .text-none{
+                            text-decoration: none;
+                        }
                         a{
                             display: flex;
                             align-items: center;
@@ -169,6 +180,7 @@ const Nav = styled.nav`
                 font-weight: 500;  
                 height: 100%;
                 cursor: pointer;
+                
                 &:hover a{
                     color: blue;
                 }
@@ -182,6 +194,10 @@ const Nav = styled.nav`
                     cursor: pointer;
                     color: black;
                     text-decoration: none;
+                    gap: .3rem;
+                    .icon{
+                        font-size: 13px;
+                    }
                 }
             }
         }
